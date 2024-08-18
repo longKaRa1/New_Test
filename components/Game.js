@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import NumberButton from "./NumberButton";
 import ControlPanel from "./ControlPanel";
 import styles from "../styles/Game.module.css";
+import Snowflakes from "./Snowflakes"; // Import Snowflakes component
 
 const Game = () => {
   const [points, setPoints] = useState(0);
@@ -82,6 +83,7 @@ const Game = () => {
 
   return (
     <div className={styles.gameContainer}>
+      <Snowflakes />
       {status && (
         <div
           className={`${styles.status} ${
@@ -93,13 +95,14 @@ const Game = () => {
       )}
       {error && <div className={styles.error}>{error}</div>}
       <h2>LET'S PLAY</h2>
-      <div className={styles.timer}>Time: {time.toFixed(1)} s</div>
       <ControlPanel
         points={points}
         setPoints={setPoints}
         onStart={handleStart}
         isPlaying={isPlaying}
       />
+      <div className={styles.timer}>Time: {time.toFixed(1)} s</div>
+
       <div className={styles.playArea}>
         {sequence.map((item, index) => (
           <NumberButton

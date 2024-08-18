@@ -10,7 +10,6 @@
   transition: background-color 2s ease, opacity 2s ease, transform 2s ease;
   opacity: 1;
   transform: scale(1);
-  color: #000000;
 }
 
 .numberButton.active {
